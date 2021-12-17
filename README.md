@@ -1,1 +1,1 @@
-# swift-lib-inrento-sdk
+# PayseraInRentoSDK
