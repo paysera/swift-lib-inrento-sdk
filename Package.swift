@@ -10,11 +10,15 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/Alamofire/Alamofire", .exact("5.4.3")),
+        .package(url: "https://github.com/mxcl/PromiseKit", .exact("6.15.3")),
     ],
     targets: [
         .target(
             name: "PayseraInRentoSDK",
-            dependencies: ["Alamofire"]
+            dependencies: [
+                "Alamofire",
+                "PromiseKit",
+            ]
         ),
         .testTarget(
             name: "PayseraInRentoSDKTests",
