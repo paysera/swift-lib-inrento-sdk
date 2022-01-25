@@ -4,6 +4,6 @@ public struct IRInvestRequest: Encodable {
     
     private enum CodingKeys: String, CodingKey {
         case projectID = "project_id"
-        case amount = "amount"
+        case amount
     }
 }

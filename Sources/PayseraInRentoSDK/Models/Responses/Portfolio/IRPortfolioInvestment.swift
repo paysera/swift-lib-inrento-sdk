@@ -5,7 +5,7 @@ public struct IRPortfolioInvestment: Decodable {
     public let date: Date
     public let projectID: Int
     public let projectName: String
-    public let projectMainPhotoURL: String
+    public let projectMainPhotoURL: URL?
     public let currency: String
     public let investedFunds: String
     public let receivedDividends: String

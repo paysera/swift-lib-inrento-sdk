@@ -8,7 +8,7 @@ public struct IRProjectStats: Decodable {
     
     private enum CodingKeys: String, CodingKey {
         case projectStatus = "project_status"
-        case currency = "currency"
+        case currency
         case collectedFunds = "collected_funds"
         case investorsCount = "investors_count"
         case userInvestments = "user_investments"

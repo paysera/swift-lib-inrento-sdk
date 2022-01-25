@@ -6,7 +6,7 @@ public struct IRProjectStatus: RawRepresentable {
     }
     
     public static let funding = Self(rawValue: 1)
-    public static let done = Self(rawValue: 2)
+    public static let funded = Self(rawValue: 2)
     public static let returned = Self(rawValue: 3)
 }
 

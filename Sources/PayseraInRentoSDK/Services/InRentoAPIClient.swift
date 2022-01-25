@@ -88,7 +88,14 @@ public class InRentoAPIClient {
         let statusCode = urlResponse.statusCode
         
         if 200 ... 299 ~= statusCode {
-            apiRequest.pendingPromise.resolver.fulfill(response.value ?? Data())
+            if
+                let response = response.value,
+                let error = try? decoder.decode(InRentoError.self, from: response)
+            {
+                apiRequest.pendingPromise.resolver.reject(error)
+            } else {
+                apiRequest.pendingPromise.resolver.fulfill(response.value ?? Data())
+            }
         } else {
             let error = response.value
                 .flatMap { try? decoder.decode(InRentoError.self, from: $0) } ?? .unknown

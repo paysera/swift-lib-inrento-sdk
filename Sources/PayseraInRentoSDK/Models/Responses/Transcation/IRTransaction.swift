@@ -1,14 +1,14 @@
 import Foundation
 
 public struct IRTransaction: Decodable {
-    public let transactionID: String
+    public let transactionID: Int
     public let date: Date
     public let type: String
     public let amount: String
     public let smPrice: String?
     public let currency: String
-    public let projectName: String
-    public let projectStatus: IRProjectStatus
+    public let projectName: String?
+    public let projectStatus: IRProjectStatus?
     
     private enum CodingKeys: String, CodingKey {
         case transactionID = "transaction_id"

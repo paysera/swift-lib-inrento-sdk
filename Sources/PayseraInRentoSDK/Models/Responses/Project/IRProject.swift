@@ -1,32 +1,33 @@
+import Foundation
+
 public struct IRProject: Decodable {
     public let id: Int
     public let name: String
     public let status: IRProjectStatus
-    public let country: String
-    public let city: String
+    public let country: String?
+    public let city: String?
     public let address: String?
     public let currency: String
     public let fundingAmount: String
     public let collectedFunds: String
-    public let investorsCount: String
+    public let investorsCount: Int
     public let annualYield: String
-    public let additionalAnnualYield: String
+    public let additionalAnnualYield: String?
     public let yieldName: String
     public let yieldValue: String
-    public let termInMonths: Int?
+    public let termInMonths: Int
     public let term: String?
-    public let realReturn: String
+    public let realReturn: String?
     public let realTerm: Int?
     public let endInvestmentsDate: Int
     public let principalReturnDate: Int?
     public let investmentType: Int?
-    public let investmentTypeName: String
+    public let investmentTypeName: String?
     public let propertyType: Int?
-    public let propertyTypeName: String
+    public let propertyTypeName: String?
     public let mortgageRank: Int?
-    public let mortgageRankName: String
-    public let loanStartDate: Int?
-    public let mainPhotoURL: String
+    public let mortgageRankName: String?
+    public let mainPhotoURL: URL?
     public let riskScoringValue: String?
     public let interestDistribution: String?
     
@@ -57,7 +58,6 @@ public struct IRProject: Decodable {
         case propertyTypeName = "property_type_name"
         case mortgageRank = "mortgage_rank"
         case mortgageRankName = "mortgage_rank_name"
-        case loanStartDate = "loan_start_day"
         case mainPhotoURL = "photo"
         case riskScoringValue = "risk_scoring_value"
         case interestDistribution = "interest_distribution"

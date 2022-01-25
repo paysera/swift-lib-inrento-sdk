@@ -4,7 +4,7 @@ public struct IRAccount: Decodable {
     public let email: String
     public let name: String
     public let surname: String
-    public let companyName: String
+    public let companyName: String?
     public let invitedUsersCount: Int
     public let verified: Bool
     public let showBeforeInvestQuestionnaire: Bool
