@@ -1,7 +1,7 @@
 import Foundation
 
 public struct IRTransaction: Decodable {
-    public let transactionID: Int
+    public let id: Int
     public let date: Date
     public let type: String
     public let amount: String
@@ -11,7 +11,7 @@ public struct IRTransaction: Decodable {
     public let projectStatus: IRProjectStatus?
     
     private enum CodingKeys: String, CodingKey {
-        case transactionID = "transaction_id"
+        case id = "transaction_id"
         case date
         case type
         case amount
