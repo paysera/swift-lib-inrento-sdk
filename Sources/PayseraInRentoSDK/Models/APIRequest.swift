@@ -2,7 +2,7 @@ import Alamofire
 import Foundation
 import PromiseKit
 
-class APIRequest {
+final class APIRequest {
     public let requestEndpoint: URLRequestConvertible
     public let pendingPromise: (promise: Promise<Data?>, resolver: Resolver<Data?>)
     

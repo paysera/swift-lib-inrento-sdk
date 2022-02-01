@@ -1,7 +1,7 @@
 import Alamofire
 import Foundation
 
-class RequestAdapter: RequestInterceptor {
+final class RequestAdapter: RequestInterceptor {
     private let credentials: InRentoCredentials
     private let headers: InRentoHeaders?
     

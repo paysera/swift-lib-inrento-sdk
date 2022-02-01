@@ -1,4 +1,4 @@
-public class InRentoHeaders {
+final public class InRentoHeaders {
     private(set) var headers: [InRentoHeader] = []
     
     public init(headers: [InRentoHeader]) {

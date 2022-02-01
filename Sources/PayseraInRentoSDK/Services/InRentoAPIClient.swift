@@ -2,7 +2,7 @@ import Alamofire
 import Foundation
 import PromiseKit
 
-public class InRentoAPIClient {
+final public class InRentoAPIClient {
     private let session: Session
     private let credentials: InRentoCredentials
     private let tokenRefresher: InRentoTokenRefresherInterface?

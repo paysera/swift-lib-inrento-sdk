@@ -1,6 +1,6 @@
 import Foundation
 
-public class InRentoCredentials {
+final public class InRentoCredentials {
     public var accessToken: String?
     public var accessTokenExpiresAt: Date?
     public var accessTokenIssuedAt: Date?
