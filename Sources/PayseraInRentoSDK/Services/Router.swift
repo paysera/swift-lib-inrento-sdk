@@ -54,7 +54,6 @@ extension Router: URLRequestConvertible {
         var urlRequest = URLRequest(url: url)
         urlRequest.method = info.method
         
-        
         switch info.method {
         case .put, .post:
             urlRequest = try JSONEncoding.default.encode(urlRequest, with: info.parameters)

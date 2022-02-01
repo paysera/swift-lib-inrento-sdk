@@ -71,5 +71,4 @@ final class PayseraInRentoSDKTests: XCTestCase {
             description: "Should return document"
         )
     }
-    
 }
