@@ -16,7 +16,7 @@ final public class InRentoAPIClient {
         return jsonDecoder
     }()
     
-    public init(
+    init(
         session: Session,
         credentials: InRentoCredentials,
         tokenRefresher: InRentoTokenRefresherInterface?

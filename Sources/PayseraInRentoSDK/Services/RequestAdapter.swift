@@ -5,7 +5,7 @@ final class RequestAdapter: RequestInterceptor {
     private let credentials: InRentoCredentials
     private let headers: InRentoHeaders?
     
-    public init(
+    init(
         credentials: InRentoCredentials,
         headers: InRentoHeaders?
     ) {
@@ -13,7 +13,7 @@ final class RequestAdapter: RequestInterceptor {
         self.headers = headers
     }
     
-    public func adapt(
+    func adapt(
         _ urlRequest: URLRequest,
         for session: Session,
         completion: @escaping (Result<URLRequest, Error>) -> Void
@@ -34,7 +34,7 @@ final class RequestAdapter: RequestInterceptor {
         completion(.success(urlRequest))
     }
     
-    public func retry(
+    func retry(
         _ request: Request,
         for session: Session,
         dueTo error: Error,
