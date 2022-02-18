@@ -19,8 +19,8 @@ public struct IRProject: Decodable {
     public let term: String?
     public let realReturn: String?
     public let realTerm: Int?
-    public let endInvestmentsDate: Int
-    public let principalReturnDate: Int?
+    public let endInvestmentsDate: Date
+    public let principalReturnDate: Date?
     public let investmentType: Int?
     public let investmentTypeName: String?
     public let propertyType: Int?
