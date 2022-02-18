@@ -9,8 +9,8 @@ let package = Package(
         .library(name: "PayseraInRentoSDK", targets: ["PayseraInRentoSDK"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/Alamofire/Alamofire", .exact("5.4.3")),
-        .package(url: "https://github.com/mxcl/PromiseKit", .exact("6.15.3")),
+        .package(url: "https://github.com/Alamofire/Alamofire", .upToNextMajor(from: "5.0.0")),
+        .package(url: "https://github.com/mxcl/PromiseKit", .upToNextMajor(from: "6.0.0")),
     ],
     targets: [
         .target(
