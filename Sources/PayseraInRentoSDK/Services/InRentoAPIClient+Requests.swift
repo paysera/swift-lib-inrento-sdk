@@ -36,4 +36,8 @@ public extension InRentoAPIClient {
     func getDocument(id: String) -> Promise<IRDocument> {
         doRequest(requestRouter: Router.getDocument(id: id))
     }
+    
+    func getProjectUpdates(id: String) -> Promise<IRProjectUpdateResponse> {
+        doRequest(requestRouter: Router.getProjectUpdates(id: id))
+    }
 }

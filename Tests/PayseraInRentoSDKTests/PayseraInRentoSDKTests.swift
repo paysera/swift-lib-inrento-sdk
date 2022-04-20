@@ -71,4 +71,11 @@ final class PayseraInRentoSDKTests: XCTestCase {
             description: "Should return document"
         )
     }
+    
+    func testGetProjectUpdates() throws {
+        executeNonNil(
+            inRentoAPIClient.getProjectUpdates(id: "337"),
+            description: "Should return updates"
+        )
+    }
 }

@@ -13,6 +13,7 @@ enum Router {
     case getProject(id: Int)
     case getProjectStats(id: Int)
     case getDocument(id: String)
+    case getProjectUpdates(id: String)
     
     // MARK: POST
     case invest(request: IRInvestRequest)
@@ -37,6 +38,8 @@ private extension Router {
             return RequestRoute(method: .get, path: "project/\(id)/stats")
         case .getDocument(let id):
             return RequestRoute(method: .get, path: "document/\(id)")
+        case .getProjectUpdates(let id):
+            return RequestRoute(method: .get, path: "project/\(id)/updates")
         
         // MARK: POST
         case .invest(let payload):
