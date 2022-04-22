@@ -4,4 +4,5 @@ public struct IRProjectUpdateResponse: Decodable {
 
 public struct IRProjectUpdate: Decodable {
     public let content: String
+    public let date: Int
 }
