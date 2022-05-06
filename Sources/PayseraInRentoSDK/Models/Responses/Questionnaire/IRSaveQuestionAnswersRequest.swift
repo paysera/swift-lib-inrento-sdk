@@ -1,18 +1,18 @@
-public struct AnsweredQuestion {
+public struct IRAnsweredQuestion {
     public let key: String
-    public let input: Input
+    public let input: IRInput
     
     public init(
         key: String,
-        input: Input
+        input: IRInput
     ) {
         self.key = key
         self.input = input
     }
 }
 
-extension AnsweredQuestion {
-    public enum Input {
+extension IRAnsweredQuestion {
+    public enum IRInput {
         case single(String)
         case array([String])
         
@@ -28,9 +28,9 @@ extension AnsweredQuestion {
 }
 
 public struct IRSaveQuestionAnswersRequest {
-    public let answers: [AnsweredQuestion]
+    public let answers: [IRAnsweredQuestion]
     
-    public init(answers: [AnsweredQuestion]) {
+    public init(answers: [IRAnsweredQuestion]) {
         self.answers = answers
     }
     
