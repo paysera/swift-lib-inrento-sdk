@@ -18,6 +18,7 @@ enum Router {
     // MARK: POST
     case invest(request: IRInvestRequest)
     case confirmRiskAgreement
+    case saveQuestionnaireAnswers(IRSaveQuestionAnswersRequest)
 }
 
 private extension Router {
@@ -46,6 +47,12 @@ private extension Router {
             return RequestRoute(method: .post, path: "invest", payload: payload)
         case .confirmRiskAgreement:
             return RequestRoute(method: .post, path: "risk_agreement")
+        case .saveQuestionnaireAnswers(let request):
+            return RequestRoute(
+                method: .post,
+                path: "questionnaire",
+                parameters: request.toJSON()
+            )
         }
     }
 }

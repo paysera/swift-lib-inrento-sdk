@@ -40,4 +40,8 @@ public extension InRentoAPIClient {
     func getProjectUpdates(id: String) -> Promise<IRProjectUpdateResponse> {
         doRequest(requestRouter: Router.getProjectUpdates(id: id))
     }
+    
+    func saveQuestionnaireAnswers(request: IRSaveQuestionAnswersRequest) -> Promise<Void> {
+        doRequest(requestRouter: Router.saveQuestionnaireAnswers(request))
+    }
 }
