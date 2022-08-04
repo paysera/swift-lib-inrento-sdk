@@ -1,9 +1,19 @@
 import Alamofire
 import Foundation
 
+enum BaseURLType {
+    case inRento
+    case wallet
+}
+
 enum Router {
     // MARK: BASEURL
-    private static let baseURL = URL(string: "https://test-api.inrento.com/paysera/v1")!
+    private var baseURL: URL {
+        URL(string: "https://test-api.inrento.com/paysera/v1")!
+    }
+    private var walletBaseURL: URL {
+        URL(string: "https://wallet.paysera.com/partner-oauth/v1")!
+    }
     
     // MARK: GET
     case getAccount
@@ -14,6 +24,8 @@ enum Router {
     case getProjectStats(id: Int)
     case getDocument(id: String)
     case getProjectUpdates(id: String)
+    case getPartnerOAuthRequests
+    case getPartnerOAuthRequestsApprove(key: String)
     
     // MARK: POST
     case invest(request: IRInvestRequest)
@@ -25,27 +37,31 @@ private extension Router {
         switch self {
         // MARK: GET
         case .getAccount:
-            return RequestRoute(method: .get, path: "account")
+            return RequestRoute(baseURL: baseURL, method: .get, path: "account")
         case .getPortfolio:
-            return RequestRoute(method: .get, path: "portfolio")
+            return RequestRoute(baseURL: baseURL, method: .get, path: "portfolio")
         case .getTransactions:
-            return RequestRoute(method: .get, path: "transactions")
+            return RequestRoute(baseURL: baseURL, method: .get, path: "transactions")
         case .getProjects:
-            return RequestRoute(method: .get, path: "projects")
+            return RequestRoute(baseURL: baseURL, method: .get, path: "projects")
         case .getProject(let id):
-            return RequestRoute(method: .get, path: "project/\(id)")
+            return RequestRoute(baseURL: baseURL, method: .get, path: "project/\(id)")
         case .getProjectStats(let id):
-            return RequestRoute(method: .get, path: "project/\(id)/stats")
+            return RequestRoute(baseURL: baseURL, method: .get, path: "project/\(id)/stats")
         case .getDocument(let id):
-            return RequestRoute(method: .get, path: "document/\(id)")
+            return RequestRoute(baseURL: baseURL, method: .get, path: "document/\(id)")
         case .getProjectUpdates(let id):
-            return RequestRoute(method: .get, path: "project/\(id)/updates")
-        
+            return RequestRoute(baseURL: baseURL, method: .get, path: "project/\(id)/updates")
+        case .getPartnerOAuthRequests:
+            return RequestRoute(baseURL: walletBaseURL, method: .get, path: "partner-oauth-requests")
+        case .getPartnerOAuthRequestsApprove(let key):
+            return RequestRoute(baseURL: walletBaseURL, method: .get, path: "partner-oauth-requests/\(key)/approve")
+            
         // MARK: POST
         case .invest(let payload):
-            return RequestRoute(method: .post, path: "invest", payload: payload)
+            return RequestRoute(baseURL: baseURL, method: .post, path: "invest", payload: payload)
         case .confirmRiskAgreement:
-            return RequestRoute(method: .post, path: "risk_agreement")
+            return RequestRoute(baseURL: baseURL, method: .post, path: "risk_agreement")
         }
     }
 }
@@ -53,7 +69,7 @@ private extension Router {
 extension Router: URLRequestConvertible {
     func asURLRequest() throws -> URLRequest {
         let info = route
-        let url = Self.baseURL.appendingPathComponent(info.path)
+        let url = info.baseURL.appendingPathComponent(info.path)
         var urlRequest = URLRequest(url: url)
         urlRequest.method = info.method
         
@@ -68,6 +84,7 @@ extension Router: URLRequestConvertible {
 }
 
 private struct RequestRoute {
+    let baseURL: URL
     let method: HTTPMethod
     let path: String
     let parameters: Parameters?
@@ -75,16 +92,19 @@ private struct RequestRoute {
     private static let encoder = JSONEncoder()
     
     init(
+        baseURL: URL,
         method: HTTPMethod,
         path: String,
         parameters: Parameters? = nil
     ) {
+        self.baseURL = baseURL
         self.method = method
         self.path = path
         self.parameters = parameters
     }
     
     init<Payload: Encodable>(
+        baseURL: URL,
         method: HTTPMethod,
         path: String,
         payload: Payload?
@@ -98,6 +118,6 @@ private struct RequestRoute {
             dictionary = jsonDictionary
         }
         
-        self.init(method: method, path: path, parameters: dictionary)
+        self.init(baseURL: baseURL, method: method, path: path, parameters: dictionary)
     }
 }

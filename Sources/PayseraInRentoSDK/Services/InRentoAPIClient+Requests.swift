@@ -40,4 +40,12 @@ public extension InRentoAPIClient {
     func getProjectUpdates(id: String) -> Promise<IRProjectUpdateResponse> {
         doRequest(requestRouter: Router.getProjectUpdates(id: id))
     }
+    
+    func getPartnerRequests() -> Promise<String> {
+        doRequest(requestRouter: Router.getPartnerOAuthRequests)
+    }
+    
+    func approvePartnerRequests(key: String) -> Promise<Void> {
+        doRequest(requestRouter: Router.getPartnerOAuthRequestsApprove(key: key))
+    }
 }
