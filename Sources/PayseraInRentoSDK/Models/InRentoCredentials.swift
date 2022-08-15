@@ -12,7 +12,7 @@ final public class InRentoCredentials {
         accessTokenExpiresAt: Date? = nil,
         accessTokenIssuedAt: Date? = nil,
         refreshToken: String? = nil,
-        refreshTokenExpiresAt: Date? = nil,
+        refreshTokenExpiresAt: Date? = nil
     ) {
         self.accessToken = accessToken
         self.accessTokenExpiresAt = accessTokenExpiresAt
