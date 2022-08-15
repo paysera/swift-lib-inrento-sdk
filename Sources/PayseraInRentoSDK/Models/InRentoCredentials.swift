@@ -6,7 +6,6 @@ final public class InRentoCredentials {
     public var accessTokenIssuedAt: Date?
     public var refreshToken: String?
     public var refreshTokenExpiresAt: Date?
-    public var refreshTokenIssuedAt: Date?
     
     public init(
         accessToken: String? = nil,
@@ -14,14 +13,12 @@ final public class InRentoCredentials {
         accessTokenIssuedAt: Date? = nil,
         refreshToken: String? = nil,
         refreshTokenExpiresAt: Date? = nil,
-        refreshTokenIssuedAt: Date? = nil
     ) {
         self.accessToken = accessToken
         self.accessTokenExpiresAt = accessTokenExpiresAt
         self.accessTokenIssuedAt = accessTokenIssuedAt
         self.refreshToken = refreshToken
         self.refreshTokenExpiresAt = refreshTokenExpiresAt
-        self.refreshTokenIssuedAt = refreshTokenIssuedAt
     }
     
     public func hasExpired() -> Bool {
