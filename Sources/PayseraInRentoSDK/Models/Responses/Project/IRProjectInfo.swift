@@ -4,7 +4,6 @@ public struct IRProjectInfo: Decodable {
     public let project: IRProject
     public let photoURLs: [URL]
     public let documentIDs: [Int]
-    public let descriptionHTML: String
     public let riskScoring: [IRRiskScoring]
     public let occupancy: [IROccupancy]
     public let generalLoanTermsDocumentID: Int?
@@ -14,7 +13,6 @@ public struct IRProjectInfo: Decodable {
         case project = "project_short"
         case photoURLs = "photos"
         case documentIDs = "documents"
-        case descriptionHTML = "description"
         case riskScoring = "risk_scoring"
         case occupancy
         case generalLoanTermsDocumentID = "general_loan_terms"
