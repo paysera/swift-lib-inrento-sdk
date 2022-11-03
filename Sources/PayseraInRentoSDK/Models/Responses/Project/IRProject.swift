@@ -31,6 +31,8 @@ public struct IRProject: Decodable {
     public let interestDistribution: String?
     public let infoHTMLString: String
     public let capitalGains: IRCapitalGains
+    public let latitude: Double?
+    public let longitude: Double?
 
     private enum CodingKeys: String, CodingKey {
         case id
@@ -63,5 +65,7 @@ public struct IRProject: Decodable {
         case interestDistribution = "interest_distribution"
         case infoHTMLString = "description"
         case capitalGains = "capital_gains"
+        case latitude
+        case longitude
     }
 }
