@@ -1,8 +1,8 @@
-public struct IRProjectUpdateResponse: Decodable {
-    public let updates: [IRProjectUpdate]
+public struct IRProjectUpdate: Decodable {
+    public let message: String
+    public let date: IRDate
 }
 
-public struct IRProjectUpdate: Decodable {
-    public let content: String
-    public let date: Int
+public struct IRDate: Decodable {
+    public let date: String
 }
