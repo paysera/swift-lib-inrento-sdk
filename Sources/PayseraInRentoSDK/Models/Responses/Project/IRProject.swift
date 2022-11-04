@@ -34,6 +34,7 @@ public struct IRProject: Decodable {
     public let latitude: Double?
     public let longitude: Double?
     public let updates: [IRProjectUpdate]
+    public let documents: [IRProjectDocument]
 
     private enum CodingKeys: String, CodingKey {
         case id
@@ -69,5 +70,6 @@ public struct IRProject: Decodable {
         case latitude
         case longitude
         case updates
+        case documents
     }
 }
