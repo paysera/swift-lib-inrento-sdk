@@ -20,7 +20,6 @@ public struct IRProject: Decodable {
     public let realReturn: String?
     public let realTerm: String?
     public let endInvestmentsDate: Date
-    public let principalReturnDate: Date?
     public let investmentType: Int?
     public let investmentTypeName: String?
     public let propertyType: Int?
@@ -30,7 +29,13 @@ public struct IRProject: Decodable {
     public let mainPhotoURL: URL?
     public let riskScoringValue: String?
     public let interestDistribution: String?
-    
+    public let infoHTMLString: String
+    public let capitalGains: IRCapitalGains
+    public let latitude: Double?
+    public let longitude: Double?
+    public let updates: [IRProjectUpdate]
+    public let documents: [IRProjectDocument]
+
     private enum CodingKeys: String, CodingKey {
         case id
         case name
@@ -51,7 +56,6 @@ public struct IRProject: Decodable {
         case realReturn = "real_return"
         case realTerm = "real_term"
         case endInvestmentsDate = "date_end_investments"
-        case principalReturnDate = "principal_return_date"
         case investmentType = "investment_type"
         case investmentTypeName = "investment_type_name"
         case propertyType = "property_type"
@@ -61,5 +65,11 @@ public struct IRProject: Decodable {
         case mainPhotoURL = "photo"
         case riskScoringValue = "risk_scoring_value"
         case interestDistribution = "interest_distribution"
+        case infoHTMLString = "description"
+        case capitalGains = "capital_gains"
+        case latitude
+        case longitude
+        case updates
+        case documents
     }
 }
