@@ -30,7 +30,7 @@ public struct IRProject: Decodable {
     public let riskScoringValue: String?
     public let interestDistribution: String?
     public let infoHTMLString: String
-    public let capitalGains: IRCapitalGains
+    public let capitalGains: IRCapitalGains?
     public let latitude: Double?
     public let longitude: Double?
     public let updates: [IRProjectUpdate]
