@@ -2,10 +2,17 @@ import Alamofire
 import Foundation
 
 enum Router {
-    // MARK: BASEURL
-    private static let baseURL = URL(string: "https://test-api.inrento.com/paysera/v1")!
+    /// Base URL
+    static var baseURL: URL {
+        switch InRentoTargetEnvironment.current {
+        case .test:
+            return URL(string: "https://test-api.inrento.com/paysera/v1")!
+        case .prod:
+            return URL(string: "https://api.inrento.com/paysera/v1")!
+        }
+    }
     
-    // MARK: GET
+    /// GET
     case getAccount
     case getPortfolio
     case getTransactions
@@ -15,7 +22,7 @@ enum Router {
     case getDocument(id: String)
     case getProjectUpdates(id: String)
     
-    // MARK: POST
+    /// POST
     case invest(request: IRInvestRequest)
     case confirmRiskAgreement
     case saveQuestionnaireAnswers(IRSaveQuestionAnswersRequest)
