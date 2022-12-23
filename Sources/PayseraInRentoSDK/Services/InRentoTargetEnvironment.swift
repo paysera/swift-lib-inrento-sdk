@@ -5,11 +5,7 @@ public enum InRentoEnvironment {
     case prod
 }
 
-public protocol InRentoTargetEnvironmentInterface {
-    static var current: InRentoEnvironment { get }
-}
-
-public final class InRentoTargetEnvironment: InRentoTargetEnvironmentInterface {
+public final class InRentoTargetEnvironment {
     public private(set) static var current: InRentoEnvironment = .prod
     
     public init(environment: InRentoEnvironment) {
