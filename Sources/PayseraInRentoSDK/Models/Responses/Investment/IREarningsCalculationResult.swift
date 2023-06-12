@@ -1,8 +1,8 @@
 public struct IREarningsCalculationResult: Decodable {
     public let earn: Double?
-    public let earnAdditional: Int?
+    public let earnAdditional: Double?
     public let totalExpectedEarnings: Double?
-    public let totalExpectedEarningsAdditional: Int?
+    public let totalExpectedEarningsAdditional: Double?
     public let capitalGainPercentage: String?
     public let projectId: String?
     
