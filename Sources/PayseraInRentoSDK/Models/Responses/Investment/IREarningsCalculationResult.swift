@@ -1,5 +1,5 @@
 public struct IREarningsCalculationResult: Decodable {
-    public let earn: Int
+    public let earn: Double
     public let earnAdditional: Int
     public let totalExpectedEarnings: Double
     public let totalExpectedEarningsAdditional: Int
