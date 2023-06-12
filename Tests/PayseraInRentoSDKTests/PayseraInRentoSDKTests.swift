@@ -78,4 +78,11 @@ final class PayseraInRentoSDKTests: XCTestCase {
             description: "Should return updates"
         )
     }
+    
+    func testCalculateInvestmentEarnings() throws {
+        executeNonNil(
+            inRentoAPIClient.calculateInvestmentEarnings(id: 0, amount: "insert_me"),
+            description: "Should return IREarningsCalculationResult type of result"
+        )
+    }
 }
