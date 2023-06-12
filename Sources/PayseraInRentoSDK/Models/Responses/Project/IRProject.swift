@@ -29,17 +29,12 @@ public struct IRProject: Decodable {
     public let mainPhotoURL: URL?
     public let riskScoringValue: String?
     public let interestDistribution: String?
-    public let description: String
+    public let infoHTMLString: String
     public let capitalGains: IRCapitalGains?
     public let latitude: Double?
     public let longitude: Double?
     public let updates: [IRProjectUpdate]
     public let documents: [IRProjectDocument]
-    public let reasonsToInvest: [String?]
-    public let financialTerms: String?
-    public let projectOwner: IRProjectOwner?
-    public let keyInvestmentRisks: [IRKeyInvestmentRisk?]
-    public let faq: [IRFAQ?]
 
     private enum CodingKeys: String, CodingKey {
         case id
@@ -70,16 +65,11 @@ public struct IRProject: Decodable {
         case mainPhotoURL = "photo"
         case riskScoringValue = "risk_scoring_value"
         case interestDistribution = "interest_distribution"
-        case description
+        case infoHTMLString = "description"
         case capitalGains = "capital_gains"
         case latitude
         case longitude
         case updates
         case documents
-        case reasonsToInvest = "reasons_to_invest"
-        case financialTerms = "financial_terms"
-        case projectOwner = "project_owner"
-        case keyInvestmentRisks = "project_key_investment_risks"
-        case faq = "project_faq"
     }
 }
