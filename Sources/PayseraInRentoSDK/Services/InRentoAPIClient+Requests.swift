@@ -25,6 +25,10 @@ public extension InRentoAPIClient {
         doRequest(requestRouter: Router.getProjectStats(id: id))
     }
     
+    func calculateInvestmentEarnings(id: Int, amount: String) -> Promise<IREarningsCalculationResult> {
+        doRequest(requestRouter: Router.calculateInvestmentEarnings((id, amount)))
+    }
+    
     func invest(request: IRInvestRequest) -> Promise<Void> {
         doRequest(requestRouter: Router.invest(request: request))
     }
