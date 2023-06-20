@@ -5,6 +5,8 @@ public struct IREarningsCalculationResult: Decodable {
     public let totalExpectedEarningsAdditional: Double?
     public let capitalGainPercentage: String?
     public let projectId: String?
+    public let annualYield: Double?
+    public let additionalAnnualYield: Double?
     
     private enum CodingKeys: String, CodingKey {
         case earn
@@ -13,5 +15,7 @@ public struct IREarningsCalculationResult: Decodable {
         case totalExpectedEarningsAdditional = "total_expected_earnings_additional"
         case capitalGainPercentage = "capital_gain_percentage"
         case projectId = "project_id"
+        case annualYield = "annual_yield"
+        case additionalAnnualYield = "additional_annual_yield"
     }
 }
