@@ -11,7 +11,7 @@ public struct InRentoHeader {
     }
     
     public static func locale(_ value: String) -> InRentoHeader {
-        InRentoHeader(name: "X-LOCALE", value: value)
+        InRentoHeader(name: "X-LOCALE", value: "en")
     }
     
     public static func apiKey(_ value: String) -> InRentoHeader {
