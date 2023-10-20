@@ -20,6 +20,7 @@ public struct IRProject: Decodable {
     public let realReturn: String?
     public let realTerm: String?
     public let endInvestmentsDate: Date
+    public let datePrincipalReturn: Int?
     public let investmentType: Int?
     public let investmentTypeName: String?
     public let propertyType: Int?
@@ -61,6 +62,7 @@ public struct IRProject: Decodable {
         case realReturn = "real_return"
         case realTerm = "real_term"
         case endInvestmentsDate = "date_end_investments"
+        case datePrincipalReturn = "date_principal_return"
         case investmentType = "investment_type"
         case investmentTypeName = "investment_type_name"
         case propertyType = "property_type"
